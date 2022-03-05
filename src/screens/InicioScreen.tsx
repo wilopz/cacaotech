@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { ButtonCp } from '../components/ButtonCp';
 import { InputCp } from '../components/InputCp';
 import { PanelCp } from '../components/PanelCp';
@@ -7,6 +7,12 @@ import { PanelCp } from '../components/PanelCp';
 export const InicioScreen = () => {
   return (
     <View style = {styles.container}>
+
+        <ImageBackground
+          style={styles.imagescreen1}
+          source={ require('../images/screen1.jpg')}
+        />
+
         <PanelCp
           height = { '50%' }
           bottom = {0}
@@ -46,9 +52,11 @@ export const InicioScreen = () => {
             color: '#2094FE',
           }} >
             ¿No tienes una cuenta? {"\n"}
-            {'           '}Registrate
+            {'            '}Registrate
           </Text>
         </TouchableOpacity>
+
+        
         
     </View>
   )
@@ -79,5 +87,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     bottom: '7%',
     color: '#2094FE',
+  },
+  imagescreen1: {
+    width: '100%',
+    height: '75%',
   },
 })
