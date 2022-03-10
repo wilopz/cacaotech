@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { ButtonCp } from '../components/ButtonCp';
 import { InputCp } from '../components/InputCp';
 import { PanelCp } from '../components/PanelCp';
