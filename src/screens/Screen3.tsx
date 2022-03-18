@@ -1,11 +1,14 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React, { useState } from 'react';
 import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 import { PanelCp } from '../components/PanelCp';
 import { InputCp } from '../components/InputCp';
 import { ButtonCp } from '../components/ButtonCp';
+import CheckBox from '@react-native-community/checkbox';
 
 export const Screen3 = () => {
+
+  const [isSelected, setSelection] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -87,7 +90,18 @@ export const Screen3 = () => {
         />
         
         <View style={styles.politicas}>
-          <Text>Acepto las politicas de tratamiento de datos</Text>
+          <View style = {{
+            justifyContent:'center',
+          }}>
+            <Text>Acepto las politicas de tratamiento de datos</Text>
+          </View>
+          <View>
+            <CheckBox
+              value={isSelected}
+              onValueChange={setSelection}
+              style={styles.checkbox}
+            />
+          </View>
         </View>
         
         <ButtonCp
@@ -133,5 +147,9 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         position: 'absolute',
         bottom: '23%',
-      }
+        justifyContent:'space-between',
+      },
+      checkbox: {
+        alignSelf: "center",
+      },
 })
