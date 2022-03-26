@@ -20,7 +20,7 @@ export const ButtonCp = ( {height = '7%', bottom = 0, title= 'title'}: Props) =>
         bottom: bottom,
         }}
     > 
-    <Text style= { styles.textButton }>{ title }</Text>
+      <Text style= { styles.textButton }>{ title }</Text>
     </TouchableOpacity> 
   )
 }
@@ -32,5 +32,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'white',
         fontWeight: "bold",
+        textAlign: 'center',
     },
 })
