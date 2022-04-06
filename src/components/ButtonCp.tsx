@@ -1,16 +1,24 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
+import { InputCp } from './InputCp';
+import { useNavigation } from '@react-navigation/native';
+
 
 interface Props {
     title?: string,
     height?: string | number,
-    bottom?: string | number
+    bottom?: string | number,
+    onPress?: () => void,
 }
 
-export const ButtonCp = ( {height = '7%', bottom = 0, title= 'title'}: Props) => {
+export const ButtonCp = ( {height = '7%', bottom = 0, title= 'title', onPress} : Props) => {
+
+
   return (
-    <TouchableOpacity style={{
+    <TouchableOpacity 
+        style={{
         width: '80%', 
         height: height,
         backgroundColor: '#2094FE',

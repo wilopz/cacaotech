@@ -2,8 +2,11 @@ import React from 'react'
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { PanelCp } from '../components/PanelCp';
 import { ButtonCp } from '../components/ButtonCp';
+import { StackScreenProps } from '@react-navigation/stack';
 
-export const Screen2 = () => {
+interface Props extends StackScreenProps<any,any>{};
+
+export const Screen2 = ( {navigation}:Props ) => {
   return (
     <View>
         <ImageBackground

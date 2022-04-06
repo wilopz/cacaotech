@@ -4,14 +4,18 @@ import { View, StyleSheet, Text, TouchableOpacity, ImageBackground } from 'react
 import { ButtonCp } from '../components/ButtonCp';
 import { InputCp } from '../components/InputCp';
 import { PanelCp } from '../components/PanelCp';
+import { Screen2 } from './Screen2';
+import { StackScreenProps } from '@react-navigation/stack';
 
-export const InicioScreen = () => {
+interface Props extends StackScreenProps<any,any>{};
+
+export const InicioScreen = ( {navigation}:Props ) => {
   return (
     <View style = {styles.container}>
 
         <ImageBackground
           style={styles.imagescreen1}
-          source={ require('../images/screen1.jpg')}
+          source={ require('../images/screen2.jpg')}
         />
 
         <PanelCp
@@ -43,12 +47,16 @@ export const InicioScreen = () => {
         <ButtonCp
           title='iniciar sesión'
           bottom = {'15%'}
+          onPress={ () => navigation.navigate('Screen2') }
         />
+        
 
         <TouchableOpacity style = {[
                 styles.text, 
                 styles.text2
-            ]}>
+            ]}
+            onPress={ () => navigation.navigate('Screen3') }
+            >
           <Text style = {{
             color: '#2094FE',
           }} >
@@ -66,7 +74,6 @@ export const InicioScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
   },
   text: {
     fontFamily: 'Mulish',
