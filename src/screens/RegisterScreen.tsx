@@ -1,12 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import { View, StyleSheet, ImageBackground, Text } from 'react-native';
+import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 import { PanelCp } from '../components/PanelCp';
 import { InputCp } from '../components/InputCp';
-import { ButtonCp } from '../components/ButtonCp';
 import CheckBox from '@react-native-community/checkbox';
+import { StackScreenProps } from '@react-navigation/stack';
 
-export const Screen3 = () => {
+interface Props extends StackScreenProps<any,any>{};
+
+export const RegisterScreen = ( {navigation}:Props ) => {
 
   const [isSelected, setSelection] = useState(false);
 
@@ -104,10 +106,12 @@ export const Screen3 = () => {
           </View>
         </View>
         
-        <ButtonCp
-          title='Crear usuario'
-          bottom = {'10%'}
-        />
+        <TouchableOpacity 
+            style={styles.buttonCp}
+            onPress={ () => navigation.navigate('LoginScreen')}
+          > 
+            <Text style= { styles.textButton }>{'Crear usuario'}</Text>
+        </TouchableOpacity> 
     </View>
   )
 }
@@ -116,40 +120,57 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'red',
-      },
-      imagescreen3: {
-        width: '100%',
-        height: '50%',
-      },
-      text: {
-        fontFamily: 'Mulish',
-        alignSelf: 'center',
-        position: 'absolute',
-      },
-      textTittle:{
-        fontSize: 30,
-        fontWeight: "bold",
-        bottom: '75%',
-        color: 'black',
-      },
-      docum:{
-        flexDirection:'row',
-        alignSelf:'center',
-        height: '6%',
-        width: '80%',
-        bottom: '15%',
-        justifyContent:'space-between',
-      },
-      politicas:{
-        flexDirection:'row',
-        /*width:'100%'*/
-        fontFamily: 'Mulish',
-        alignSelf: 'center',
-        position: 'absolute',
-        bottom: '23%',
-        justifyContent:'space-between',
-      },
-      checkbox: {
-        alignSelf: "center",
-      },
+  },
+  imagescreen3: {
+    width: '100%',
+    height: '50%',
+  },
+  text: {
+    fontFamily: 'Mulish',
+    alignSelf: 'center',
+    position: 'absolute',
+  },
+  textTittle:{
+    fontSize: 30,
+    fontWeight: "bold",
+    bottom: '75%',
+    color: 'black',
+  },
+  docum:{
+    flexDirection:'row',
+    alignSelf:'center',
+    height: '6%',
+    width: '80%',
+    bottom: '15%',
+    justifyContent:'space-between',
+  },
+  politicas:{
+    flexDirection:'row',
+    /*width:'100%'*/
+    fontFamily: 'Mulish',
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: '23%',
+    justifyContent:'space-between',
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  textButton: {
+    fontSize: 16,
+    margin: '4.5%',
+    alignSelf: 'center',
+    color: 'white',
+    fontWeight: "bold",
+    textAlign: 'center',
+  },
+  buttonCp: {
+    width: '80%', 
+    height: '7%',
+    bottom: '10%',
+    backgroundColor: '#2094FE',
+    alignSelf: 'center',
+    borderRadius: 10,
+    position: 'absolute'
+  },
 })

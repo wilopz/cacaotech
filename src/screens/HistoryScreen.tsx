@@ -6,7 +6,7 @@ import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 import { ButtonCp } from '../components/ButtonCp';
 import { PanelCp } from '../components/PanelCp';
 
-export const Screen4 = () => {
+export const HistoryScreen = () => {
   return (
     <View style={styles.container}>
         <ImageBackground
