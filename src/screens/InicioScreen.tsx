@@ -56,17 +56,13 @@ export const InicioScreen = ( {navigation}:Props ) => {
               {'            '}Registrate
             </Text>
         </TouchableOpacity>
-
       </View>
-      
-    
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
     flexDirection:'column',
     height: height,
     width: width,
@@ -79,10 +75,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: height*0.60,
     width: width,
+    position: 'absolute',
     bottom: 0,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    position: 'absolute',
   },
   text: {
     fontFamily: 'Mulish',

@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
-import { PanelCp } from '../components/PanelCp';
-import { InputCp } from '../components/InputCp';
-import CheckBox from '@react-native-community/checkbox';
+import { View, StyleSheet, Dimensions, ImageBackground, Text, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
+import { TextInput } from 'react-native-gesture-handler';
+import CheckBox from '@react-native-community/checkbox';
 
 interface Props extends StackScreenProps<any,any>{};
+
+const { width, height } = Dimensions.get('window');
 
 export const RegisterScreen = ( {navigation}:Props ) => {
 
@@ -14,83 +15,83 @@ export const RegisterScreen = ( {navigation}:Props ) => {
 
   return (
     <View style={styles.container}>
-        <ImageBackground
-          style={styles.imagescreen3}
+      <ImageBackground
+          style={styles.imagescreen}
           source={ require('../images/screen3.jpg')}
-        />
-
-        <PanelCp
-          height = { '85%' }
-          bottom = {0}
-        />
+      />
+      <View style={styles.panel}>
 
         <Text style = {[
-                styles.text, 
-                styles.textTittle
-            ]}>
-          Registra aqui tus datos
+                  styles.text, 
+                  styles.textTittle
+              ]}>
+            Registra aqui tus datos
         </Text>
 
-        <InputCp
-          height = { '6%' }
-          width = { '80%' }
-          bottom = {'65%'}
-          textInput = 'Nombre completo'
+        <Text style = {styles.textPregunta}>
+            Nombre completo*
+        </Text>
+        
+        <TextInput
+            style={styles.inputNombre}
+            placeholder="ingresa tu nombre"
         />
 
-        <View style={{
-          bottom:'13%',
-        }}>
-          <Text style={{
-            fontFamily: 'Mulish',
-            alignSelf: 'center',
-            position: 'absolute',
-            fontWeight: 'bold',
-            fontSize:20,
-            color: 'black',
-          }}>Documento de identidad</Text>
+{/*         <Text style = {[
+  styles.text, 
+  styles.textDocumento
+]}>
+Documento de identidad
+</Text> */}
+
+        <View style={{flexDirection:'row'}}>
+          <Text style = {styles.textPreguntaTipo}>
+              Tipo *
+          </Text>
+
+          <Text style = {styles.textPreguntaDocumento}>
+              Número de documento*
+          </Text>
         </View>
 
-        <View style = {styles.docum}>
-            <View style={
-              {
-                width:'30%'
-              }
-            }>
-              <InputCp
-                height = { '100%' }
-                width = { '100%' }
-                /*bottom = {'58%'}*/
-                textInput = 'tipo'
+        <View style={{flexDirection:'row'}}>
+          <TextInput
+              style={styles.inputTipo}
+              placeholder="Tipo"
+          />
+          <TextInput
+              style={styles.inputDocumento}
+              placeholder="Número"
               />
-            </View>
-            <View style={{
-              width:'60%'
-            }}>
-              <InputCp
-                height = { '100%' }
-                width = { '100%' }
-                /*bottom = {'58%'}*/
-                textInput = 'Numero'
-		          />
-            </View>
         </View>
 
+        <Text style = {styles.textPreguntaEmail}>
+            Email*
+        </Text>
 
-        <InputCp
-          height = { '6%' }
-          width = { '80%' }
-          bottom = {'40%'}
-          textInput = 'Nombre de la finca'
-        />
-
-        <InputCp
-          height = { '6%' }
-          width = { '80%' }
-          bottom = {'30%'}
-          textInput = 'Email'
+        <TextInput
+            style={styles.inputNombre}
+            placeholder="ingresa tu correo electrónico"
         />
         
+        <Text style = {styles.textPreguntaEmail}>
+          Contraseña*
+        </Text>
+
+        <TextInput
+            style={styles.inputNombre}
+            placeholder="************"
+        />
+
+        <Text style = {styles.textPreguntaEmail}>
+          Confirmar Contraseña*
+        </Text>
+
+        <TextInput
+            style={styles.inputNombre}
+            placeholder="************"
+        />
+
         <View style={styles.politicas}>
           <View style = {{
             justifyContent:'center',
@@ -105,72 +106,135 @@ export const RegisterScreen = ( {navigation}:Props ) => {
             />
           </View>
         </View>
-        
-        <TouchableOpacity 
+
+        <TouchableOpacity
             style={styles.buttonCp}
-            onPress={ () => navigation.navigate('LoginScreen')}
+            onPress={ () => navigation.navigate('RegisterAdvanceScreen')}
           > 
-            <Text style= { styles.textButton }>{'Crear usuario'}</Text>
+            <Text style= { styles.textButton }>{'Crear Usuario'}</Text>
         </TouchableOpacity> 
+
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'red',
+  container: {
+    flexDirection:'column',
+    height: height,
+    width: width,
   },
-  imagescreen3: {
-    width: '100%',
-    height: '50%',
+  imagescreen: {
+    height: height*0.25,
+    width: width,
+  },
+  panel:{
+    backgroundColor: 'white',
+    height: height*0.80,
+    width: width,
+    position: 'absolute',
+    bottom: 0,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
   },
   text: {
     fontFamily: 'Mulish',
     alignSelf: 'center',
-    position: 'absolute',
   },
   textTittle:{
     fontSize: 30,
     fontWeight: "bold",
-    bottom: '75%',
     color: 'black',
+    marginTop: 30, 
   },
-  docum:{
-    flexDirection:'row',
+  textPregunta:{
+    fontFamily: 'Mulish',
+    fontSize: 16,
+    color: 'black',
+    marginTop: 30, 
+    paddingLeft: width*0.11
+  },
+  inputNombre: {
+    backgroundColor:'#F5F5F5',
+    color: '#9E9E9E',
     alignSelf:'center',
-    height: '6%',
-    width: '80%',
-    bottom: '15%',
-    justifyContent:'space-between',
+    width: width*0.8,
+    height: height*0.06,
+    borderRadius: 10,
+    padding: 15,
+  },
+  textDocumento:{
+    fontFamily: 'Mulish',
+    fontSize: 16,
+    fontWeight: "bold",
+    color: 'black',
+    marginTop: 10, 
+    paddingLeft: width*0.11
+  },
+  inputTipo: {
+    backgroundColor:'#F5F5F5',
+    color: '#9E9E9E',
+    width: width*0.2,
+    height: height*0.06,
+    borderRadius: 10,
+    marginLeft: width*0.10,
+    paddingLeft: 15
+  },
+  textPreguntaTipo:{
+    fontFamily: 'Mulish',
+    fontSize: 16,
+    color: 'black',
+    marginTop: 10, 
+    paddingLeft: width*0.11
+  },
+  textPreguntaDocumento:{
+    fontFamily: 'Mulish',
+    fontSize: 16,
+    color: 'black',
+    marginTop: 10, 
+    paddingLeft: width*0.2
+  },
+  inputDocumento: {
+    backgroundColor:'#F5F5F5',
+    color: '#9E9E9E',
+    width: width*0.5,
+    height: height*0.06,
+    borderRadius: 10,
+    marginLeft: width*0.10,
+    paddingLeft: 15
+  },
+  textPreguntaEmail:{
+    fontFamily: 'Mulish',
+    fontSize: 16,
+    color: 'black',
+    marginTop: 10, 
+    paddingLeft: width*0.11
   },
   politicas:{
     flexDirection:'row',
-    /*width:'100%'*/
     fontFamily: 'Mulish',
     alignSelf: 'center',
     position: 'absolute',
-    bottom: '23%',
+    bottom: height*0.14,
     justifyContent:'space-between',
   },
   checkbox: {
     alignSelf: "center",
   },
-  textButton: {
-    fontSize: 16,
-    margin: '4.5%',
-    alignSelf: 'center',
-    color: 'white',
-    fontWeight: "bold",
-    textAlign: 'center',
-  },
   buttonCp: {
-    width: '80%', 
-    height: '7%',
-    bottom: '10%',
     backgroundColor: '#2094FE',
+    width: width*0.8, 
+    height: height*0.065,
     alignSelf: 'center',
     borderRadius: 10,
-    position: 'absolute'
+    marginTop: 60,
+  },
+  textButton: {
+    fontSize: 16,
+    color: 'white',
+    alignSelf: 'center',
+    fontWeight: "bold",
+    margin: height*0.015,
   },
 })
