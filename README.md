@@ -1,4 +1,4 @@
-# Usage
+# Installing
 
 1. git clone https://github.com/wilopz/cacaotech.git
 2. cd cacaotech
