@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 
 import { InicioScreen } from '../screens/InicioScreen';

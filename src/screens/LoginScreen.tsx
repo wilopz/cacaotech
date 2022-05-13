@@ -1,7 +1,6 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
-import { PanelCp } from '../components/PanelCp';
-import { ButtonCp } from '../components/ButtonCp';
 import { StackScreenProps } from '@react-navigation/stack';
 
 interface Props extends StackScreenProps<any,any>{};
