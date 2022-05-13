@@ -2,7 +2,6 @@
 import React from 'react'
 import { View, StyleSheet, ImageBackground, Dimensions, Text, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import { BottomSheetAndroid } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionPresets';
 import { TextInput } from 'react-native-gesture-handler';
 
 interface Props extends StackScreenProps<any,any>{};

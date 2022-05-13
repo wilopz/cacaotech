@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { View, Dimensions, StyleSheet, ImageBackground, Text } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -8,9 +9,9 @@ interface Props extends StackScreenProps<any,any>{};
 const { width, height } = Dimensions.get('window');
 
 
-export const RegisterAdvanceScreen = ( {navigation}:Props ) => {
+export const RegisterAdvanceScreen = ( {}:Props ) => {
 
-    const [isSelected, setSelection] = useState(false);
+    const [] = useState(false);
 
   return (
     <View style={styles.container}>
