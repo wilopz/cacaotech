@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { getPredictions } from '../components/ModelCp'
+
 
 
 interface Props extends StackScreenProps<any,any>{};
@@ -40,14 +40,6 @@ export const LoginScreen = ( {navigation}:Props ) => {
     });
   }
 
-  const takehelver = () => {
-    const imguri = takePhotoFromGallery;
-    console.log(imguri);
-    
-
-
-  }
-
 
 
   return (
@@ -83,7 +75,7 @@ export const LoginScreen = ( {navigation}:Props ) => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={takehelver}
+            onPress={ takePhotoFromGallery }
           >
             <ImageBackground
             style={styles.imagesIcon}
